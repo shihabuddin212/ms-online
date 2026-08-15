@@ -1,0 +1,409 @@
+@import "tailwindcss";
+
+/* ── Ms Online Brand Colors (from logo) ── */
+:root {
+  --navy: #0d2542;
+  /* logo dark navy */
+  --navy-mid: #163760;
+  /* mid navy  */
+  --blue: #1a7abf;
+  /* logo globe blue */
+  --blue-lt: #5bc8e8;
+  /* logo globe light cyan */
+  --navy-bg: #0b1e35;
+  /* dark section bg */
+  --white: #ffffff;
+  --gray-text: #666666;
+  --gray-bg: #f7f8fa;
+  --border: #e8eaed;
+
+  /* ── Shared spacing tokens ── */
+  --section-py: 5rem;
+  /* ~80px vertical section padding */
+  --card-radius: 1.25rem;
+  /* 20px unified card corner radius */
+  --card-shadow: 0 4px 24px rgba(13, 37, 66, .09);
+  --card-shadow-hover: 0 16px 40px rgba(13, 37, 66, .16);
+  --card-border: 1px solid #e8edf5;
+  --section-gap: 2rem;
+  /* gap between cards */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #333;
+  background: #fff;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  display: block;
+}
+
+/* Force all structural blocks to 100% width and wrap content */
+header,
+main,
+footer,
+section {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* Keep responsive content inside its section at every browser zoom level. */
+main,
+section,
+footer {
+  overflow-x: clip;
+}
+
+.grid > *,
+.content-split > *,
+.flex > * {
+  min-width: 0;
+}
+
+/* ── Shared content split layouts ──
+   Keep editorial copy and adjacent cards/visuals in separate, bounded tracks.
+   This prevents percentage-width columns plus a gap from overflowing each row. */
+.content-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(3rem, 6vw, 5rem);
+}
+
+.content-split > * {
+  width: 100%;
+  min-width: 0;
+}
+
+.content-split--reverse > :first-child {
+  order: 2;
+}
+
+.content-split--reverse > :nth-child(2) {
+  order: 1;
+}
+
+/* ── Footer layout ── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.footer-bottom {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+  border-top: 1px solid #374151;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .content-split {
+    column-gap: clamp(4.5rem, 7vw, 7rem);
+    row-gap: 0;
+  }
+
+  .content-split--equal {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content-split--five-seven {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
+
+  .content-split--two-three {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+
+  .content-split--two-one {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .content-split--app {
+    grid-template-columns: minmax(0, 1.2fr) minmax(17rem, .8fr);
+  }
+
+  .content-split--reverse > :first-child,
+  .content-split--reverse > :nth-child(2) {
+    order: initial;
+  }
+}
+
+/* ── Slide fade animation ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-enter {
+  animation: fadeUp .65s ease both;
+}
+
+/* ── Marquee Animation for Partners ── */
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: scrollMarquee 25s linear infinite;
+  display: flex;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ── Section title underline ── */
+.sec-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0d2542;
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--blue-lt);
+}
+
+/* ── Package card wave header ── */
+.pkg-card-top {
+  position: relative;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: #fff;
+  padding: 28px 20px 56px;
+  text-align: center;
+  border-radius: 12px 12px 0 0;
+}
+
+.pkg-card-top::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 46px;
+  background: #fff;
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+/* ── Feature icon ── */
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e8f4fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
+/* ── Hover lift ── */
+.hover-lift {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(13, 37, 66, .12);
+}
+
+/* ── Chat button ── */
+.chat-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--navy);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 13px;
+  z-index: 999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(13, 37, 66, .35);
+  transition: all .3s ease;
+}
+
+.chat-btn:hover {
+  background: var(--navy-mid);
+  transform: scale(1.04);
+}
+
+/* ── Button styles ── */
+.btn-primary {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 26px;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: background .2s, transform .2s;
+}
+
+.btn-primary:hover {
+  background: var(--navy-mid);
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+  padding: 11px 28px;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: background .2s;
+}
+
+.btn-dark:hover {
+  background: #222;
+}
+
+/* ── Partner logo strip ── */
+.partner-logo {
+  filter: grayscale(100%);
+  opacity: .6;
+  transition: filter .2s, opacity .2s;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #666;
+}
+
+.partner-logo:hover {
+  filter: none;
+  opacity: 1;
+  color: var(--navy);
+}
+
+/* ── Service card ── */
+.srv-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+}
+
+.feature-card {
+  min-width: 0;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.feature-card-list {
+  min-width: 0;
+}
+
+.feature-card-list li {
+  min-width: 0;
+  width: 100%;
+}
+
+.srv-card-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #f0f8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  border: 2px solid #e0eefc;
+}
+
+/* ── Slider arrows ── */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  width: 36px;
+  height: 80px;
+  background: rgba(255, 255, 255, .7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: background .2s;
+  color: var(--navy);
+}
+
+.slider-arrow:hover {
+  background: #fff;
+}
+
+.slider-arrow.left {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.slider-arrow.right {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}

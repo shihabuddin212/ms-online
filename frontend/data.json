@@ -1,0 +1,32 @@
+{
+    "admin": {
+        "email": "admin@msonline.com",
+        "password": "Admin@123"
+    },
+    "homeInternet": {
+        "title": "Best Home Internet Packages",
+        "description": "Choose the best package for your family",
+        "packages": [
+            {
+                "id": 1,
+                "name": "Economy",
+                "speed": "10 Mbps",
+                "price": "500 Tk",
+                "features": [
+                    "1 Real IP",
+                    "24/7 Support"
+                ]
+            }
+        ]
+    },
+    "blog": [],
+    "corporate": {},
+    "sme": {},
+    "ipPhone": {},
+    "cloudPabx": {},
+    "iot": {},
+    "domain": {},
+    "wifiZone": {},
+    "billPay": {},
+    "contact": {}
+}
