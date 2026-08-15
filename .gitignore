@@ -1,0 +1,13 @@
+# Dependencies and generated application output
+**/node_modules/
+**/.next/
+**/coverage/
+*.log
+
+# Secrets and machine-specific configuration
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Runtime CMS files are stored outside the Git checkout in production.
+backend/uploads/
