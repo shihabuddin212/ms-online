@@ -3,11 +3,14 @@ import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
+import { fetchServerApi } from "@/lib/api";
 
 export const metadata: Metadata = {
     title: "Corporate Internet | Ms Online",
     description: "Dedicated corporate internet solutions with SLA-backed uptime for your enterprise business.",
 };
+
+export const dynamic = "force-dynamic";
 
 const features = [
     {
@@ -56,7 +59,54 @@ const features = [
     },
 ];
 
-export default function CorporatePage() {
+const DEFAULT_CORPORATE_PACKAGES = [
+    {
+        id: "corp-business", name: "CORPORATE BUSINESS", speed: "20 Mbps", price: "8000",
+        period: "Per Month", color: "#1a7abf", isPopular: false,
+        features: [
+            { text: "Dedicated Bandwidth" }, { text: "SLA Backed Uptime" },
+            { text: "Real IP Included" }, { text: "24/7 NOC Support" },
+            { text: "Free Installation" }, { text: "OTC - 5000 Taka" },
+        ],
+    },
+    {
+        id: "corp-premium", name: "CORPORATE PREMIUM", speed: "50 Mbps", price: "18000",
+        period: "Per Month", color: "#0091d5", isPopular: true,
+        features: [
+            { text: "Dedicated Bandwidth" }, { text: "SLA Backed Uptime" },
+            { text: "Real IP Included" }, { text: "Redundant Link" },
+            { text: "24/7 NOC Support" }, { text: "Free Installation" },
+            { text: "OTC - 5000 Taka" },
+        ],
+    },
+    {
+        id: "corp-enterprise", name: "CORPORATE ENTERPRISE", speed: "100 Mbps", price: "35000",
+        period: "Per Month", color: "#1a7abf", isPopular: false,
+        features: [
+            { text: "Dedicated Bandwidth" }, { text: "SLA Backed Uptime" },
+            { text: "Real IP Included" }, { text: "Redundant Link" },
+            { text: "MPLS Connectivity" }, { text: "24/7 NOC Support" },
+            { text: "OTC - 5000 Taka" },
+        ],
+    },
+];
+
+async function getCorporatePackages() {
+    try {
+        const res = await fetchServerApi("/api/corporate/packages");
+        if (res.ok) {
+            const data = await res.json();
+            if (data?.data?.length > 0) return data.data;
+        }
+    } catch {
+        // Keep the page available with curated defaults while the API restarts.
+    }
+    return DEFAULT_CORPORATE_PACKAGES;
+}
+
+export default async function CorporatePage() {
+    const packages = await getCorporatePackages();
+
     return (
         <div className="w-full bg-[radial-gradient(circle_at_top,_rgba(91,200,232,0.08),_transparent_32%),linear-gradient(180deg,#f7fbff_0%,#eef5ff_100%)]">
 
@@ -133,9 +183,112 @@ export default function CorporatePage() {
                 </Container>
             </Section>
 
-            {/* ── Features Intro ── */}
+            {/* ── Corporate Package Intro ── */}
             <div aria-hidden="true" style={{ height: "clamp(64px, 7vw, 96px)" }} />
 
+            <Section variant="light" size="sm" className="text-center py-0">
+                <Container className="flex flex-col items-center">
+                    <span className="inline-block px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest border mb-5"
+                        style={{ color: "var(--blue)", borderColor: "var(--blue-lt)", background: "#f0f9ff" }}>
+                        Corporate Package
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                        Corporate Internet Packages
+                    </h2>
+                    <div className="w-16 h-1 rounded-full mb-5" style={{ background: "var(--blue-lt)" }} />
+                    <p className="text-gray-500 text-[15px] max-w-xl leading-relaxed">
+                        Dedicated Bandwidth with SLA-backed Reliability, Built for Enterprise Business Operations
+                    </p>
+                </Container>
+            </Section>
+
+            {/* ── Corporate Package Cards ── */}
+            <div aria-hidden="true" style={{ height: "clamp(48px, 5vw, 64px)" }} />
+
+            <Section variant="light" size="md" className="pt-0 mb-12 pb-12 md:mb-16 md:pb-16">
+                <Container>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {packages.map((pkg: any) => {
+                            const accent = pkg.color || "#1a7abf";
+                            const isPopular = !!pkg.isPopular;
+                            return (
+                                <div
+                                    key={pkg.id || pkg.name}
+                                    className="rounded-[var(--card-radius)] overflow-hidden flex flex-col hover-lift transition-all duration-300"
+                                    style={{
+                                        background: "#fff",
+                                        boxShadow: isPopular ? `0 8px 28px ${accent}20` : "var(--card-shadow)",
+                                        border: isPopular ? `2px solid ${accent}` : "var(--card-border)",
+                                    }}
+                                >
+                                    <div className="pkg-card-top relative" style={isPopular ? { background: `linear-gradient(135deg, var(--navy) 0%, ${accent} 100%)` } : {}}>
+                                        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-3" style={{ boxShadow: `0 4px 12px ${accent}30` }}>
+                                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                style={{ color: accent }}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                                    d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                                            </svg>
+                                        </div>
+                                        <h3 className="text-base font-extrabold tracking-widest" style={isPopular ? { color: "#fff" } : {}}>{pkg.name}</h3>
+                                        {isPopular && (
+                                            <div className="absolute top-3 right-3 bg-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest"
+                                                style={{ color: accent }}>
+                                                {pkg.tagline || "Most Popular"}
+                                            </div>
+                                        )}
+                                        {!isPopular && pkg.tagline && (
+                                            <div className="absolute top-3 right-3 bg-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest"
+                                                style={{ color: "#475569" }}>
+                                                {pkg.tagline}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <div className="pt-8 pb-8 px-8 flex flex-col items-center flex-grow">
+                                        {pkg.image && (
+                                            <img src={pkg.image} alt={pkg.name} className="w-20 h-20 object-cover rounded-lg border border-gray-100 shadow-sm mb-4" />
+                                        )}
+                                        <p className="text-2xl font-bold mb-2" style={{ color: "var(--navy)" }}>{pkg.speed}</p>
+                                        <div className="flex gap-1 mb-6">
+                                            {[0, 1, 2].map((i) => (
+                                                <span key={i} className="text-lg" style={{ color: accent }}>—</span>
+                                            ))}
+                                        </div>
+
+                                        <ul className="w-full flex flex-col gap-3.5 flex-grow mb-7">
+                                            {(pkg.features || []).map((f: any, i: number) => {
+                                                const txt = typeof f === "object" ? f.text : f;
+                                                return (
+                                                    <li key={i}
+                                                        className="text-gray-600 text-[13px] text-center pb-3.5 last:pb-0"
+                                                        style={{ borderBottom: "1px solid #f0f4f8" }}>
+                                                        {txt}
+                                                    </li>
+                                                );
+                                            })}
+                                        </ul>
+
+                                        <div className="text-center mb-8">
+                                            <span className="text-4xl font-extrabold text-gray-900">৳{pkg.price}</span>
+                                            <span className="text-gray-400 text-xs ml-1">+5% VAT/MONTH</span>
+                                        </div>
+
+                                        <Link
+                                            href={pkg.ctaLink || "/contact"}
+                                            className="mt-auto w-full text-white font-bold py-3.5 rounded-full text-center text-[13px] tracking-wide transition-all shadow-md hover:opacity-90 hover:shadow-lg"
+                                            style={{ background: `linear-gradient(135deg, var(--navy) 0%, ${accent} 100%)` }}
+                                        >
+                                            + GET ONLINE REGISTER
+                                        </Link>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </Container>
+            </Section>
+
+            {/* ── Features Intro ── */}
             <Section variant="light" size="sm" className="text-center py-14 md:py-18">
                 <Container className="flex flex-col items-center gap-4 md:gap-5">
                     <span className="inline-flex items-center rounded-full border border-sky-100 bg-white px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-sky-700 shadow-sm">
