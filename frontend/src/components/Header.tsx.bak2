@@ -52,7 +52,6 @@ export default function Header() {
             </span>
           </div>
           <div className="flex items-center gap-4 text-gray-400">
-            <Link href="/btrc-approved-tariff" className="hover:text-white transition">BTRC Approved Tariff</Link>
             <Link href="/blog" className="hover:text-white transition">Blog</Link>
             <a href="https://www.facebook.com/msonlineisp" target="_blank" rel="noopener noreferrer" aria-label="Visit Ms Online on Facebook" className="hover:text-white transition">
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">

@@ -58,9 +58,29 @@ export default function BillPayPage() {
                     <h1 className="text-4xl md:text-[44px] font-extrabold text-slate-800 tracking-tight">
                         Pay Your Bill <span style={{ color: "var(--blue)" }}>Easily</span>
                     </h1>
-                    <p className="text-gray-500 text-[15px] max-w-2xl mt-1 leading-relaxed">
+                       <p className="text-gray-500 text-[15px] max-w-2xl mt-1 leading-relaxed">
                         Multiple convenient payment options available. No extra charges — just pay and enjoy uninterrupted internet.
                     </p>
+
+                    <div aria-hidden="true" style={{ height: "1.27cm" }} />
+
+                    
+                        <a
+                        href="https://admin.msonlinebd.com/BillPayment/Index"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center rounded-full px-10 py-4 text-center text-xl font-extrabold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:opacity-90 md:text-2xl"
+                        style={{
+                            background: "var(--blue)",
+                            paddingLeft: "calc(2.5rem + 1in)",
+                            paddingRight: "calc(2.5rem + 1in)",
+                            height: "1.2cm",
+                            paddingTop: 0,
+                            paddingBottom: 0,
+                        }}
+                    >
+                        Pay Your Bill
+                    </a>
                 </Container>
             </Section>
 
@@ -74,7 +94,7 @@ export default function BillPayPage() {
                             Payment
                         </span>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800">
-                            How to <span style={{ color: "var(--blue)" }}>Pay Your Bill?</span>
+                            How to <span style={{ color: "var(--blue)" }}>Pay Your Payment?</span>
                         </h2>
                         <div className="flex w-full justify-center">
                             <p className="max-w-lg text-center text-gray-500 text-[15px] mt-4" style={{ textAlign: "center" }}>
@@ -85,19 +105,40 @@ export default function BillPayPage() {
 
                     <div aria-hidden="true" className="h-12 md:h-16" />
 
-                    <div className="mx-auto flex w-full max-w-[42rem] flex-col items-center rounded-2xl border border-blue-100 bg-white px-8 py-7 text-center shadow-sm md:translate-x-60 md:px-12 md:py-8">
+                    <div
+                        className="mx-auto flex w-full max-w-[42rem] flex-col items-center rounded-2xl border border-blue-100 bg-white px-8 py-7 text-center shadow-sm md:px-12 md:py-8"
+                        style={{ marginLeft: "auto", marginRight: "auto" }}
+                    >
                         <h3 className="w-full text-center text-3xl font-extrabold leading-tight text-slate-800 md:text-4xl">
                             <span style={{ color: "var(--blue)" }}>Easy</span> Payment System
                         </h3>
-                        <a
-                            href="https://admin.msonlinebd.com/BillPayment/Index"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-12 flex w-full items-center justify-center rounded-full px-10 py-4 text-center text-xl font-extrabold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:opacity-90 md:text-2xl"
-                            style={{ background: "var(--blue)" }}
-                        >
-                            Pay Your Bill
-                        </a>
+
+                        <div aria-hidden="true" style={{ height: "1.27cm" }} />
+
+                        <h4 className="text-xl md:text-2xl font-extrabold text-slate-800 mb-4">
+                            Bangla QR
+                        </h4>
+
+                        <img
+                            src="/bkash-qr.png"
+                            alt="Bangla QR Payment Code"
+                            className="w-56 h-56 object-contain rounded-xl border border-gray-100 shadow-sm mb-6"
+                        />
+
+                        <div className="w-full max-w-xs flex flex-col gap-2 text-left mx-auto">
+                            <div className="flex justify-between text-[14px] border-b border-gray-100 pb-2">
+                                <span className="font-semibold text-slate-600">Merchant Name:</span>
+                                <span className="text-slate-800 font-bold">MS ONLINE</span>
+                            </div>
+                            <div className="flex justify-between text-[14px] border-b border-gray-100 pb-2">
+                                <span className="font-semibold text-slate-600">Merchant ID:</span>
+                                <span className="text-slate-800 font-bold">460000000048358</span>
+                            </div>
+                            <div className="flex justify-between text-[14px]">
+                                <span className="font-semibold text-slate-600">Terminal ID:</span>
+                                <span className="text-slate-800 font-bold">86048358</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div aria-hidden="true" className="h-24" />

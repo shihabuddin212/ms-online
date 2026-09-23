@@ -210,11 +210,10 @@ export default function IotPage() {
             </Section>
 
             {/* ── Pricing Grid ── */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
 
             <Section variant="white" size="md" id="packages-section">
                 <Container>
-                    <div className="text-center flex flex-col items-center" style={{ marginBottom: "0.8cm" }}>
+                    <div className="text-center flex flex-col items-center" style={{ marginTop: "0.8cm", marginBottom: "0.8cm" }}>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
                             Choose Your <span className="relative inline-block pb-1" style={{ color: "var(--blue)" }}>Package<span className="absolute bottom-0 left-0 w-full h-[3px] bg-slate-900 rounded-full" /></span>
                         </h2>
@@ -312,7 +311,7 @@ export default function IotPage() {
             </Section>
 
             {/* Keeps the last IoT package card visibly separated from the footer. */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
+            <div aria-hidden="true" className="bg-white" style={{ height: "1cm" }} />
         </div>
     );
 }

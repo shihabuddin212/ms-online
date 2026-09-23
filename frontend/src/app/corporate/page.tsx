@@ -289,7 +289,7 @@ export default async function CorporatePage() {
             </Section>
 
             {/* ── Features Intro ── */}
-            <Section variant="light" size="sm" className="text-center py-14 md:py-18">
+            <Section variant="light" size="sm" className="text-center !pt-24 !pb-14 md:!pt-32 md:!pb-18">
                 <Container className="flex flex-col items-center gap-4 md:gap-5">
                     <span className="inline-flex items-center rounded-full border border-sky-100 bg-white px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-sky-700 shadow-sm">
                         Explore Our Corporate Internet Features

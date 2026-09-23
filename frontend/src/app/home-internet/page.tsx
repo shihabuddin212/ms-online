@@ -120,9 +120,9 @@ export default async function HomeInternetPage() {
                         style={{ color: "var(--blue)", background: "#eef7ff" }}>
                         <Star size={12} className="fill-current" /> Pricing Plans
                     </span>
-                    <h2 className="text-[28px] md:text-[36px] font-extrabold text-slate-900 tracking-tight mt-1 md:mt-2">
-                        {title}{" "}
-                        <span style={{ color: "var(--blue)" }}>Package</span>
+                    <h2 className="text-[28px] md:text-[36px] font-extrabold text-slate-900 tracking-tight mt-1 md:mt-2 text-center">
+                        {title.split(" ").slice(0, -1).join(" ")}{" "}
+                        <span style={{ color: "var(--blue)" }}>{title.split(" ").slice(-1)}</span>
                     </h2>
                     <p className="text-gray-500 text-[14px] max-w-lg leading-relaxed">
                         {description}
@@ -241,8 +241,8 @@ export default async function HomeInternetPage() {
                                     <Link href={pkg.ctaLink || "/contact"}
                                         className="mt-auto block w-full text-center py-3 rounded-full text-[13px] font-bold tracking-wide transition-all"
                                         style={isPop
-                                            ? { background: accentColor, color: "#fff" }
-                                            : { background: "#fff", color: accentColor, border: `2px solid ${accentColor}30` }
+                                            ? { background: accentColor, color: "#fff", marginBlockStart: "0.3cm" }
+                                            : { background: "#fff", color: accentColor, border: `2px solid ${accentColor}30`, marginBlockStart: "0.3cm" }
                                         }
                                     >
                                         Get {pkg.name} →

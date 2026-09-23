@@ -198,7 +198,7 @@ export default function ContactPage() {
                   {
                     icon: Mail,
                     title: "Email",
-                    content: "noc@msonlinebd.com\nsales@msonlinebd.com",
+                    content: "noc@msonlinebd.com",
                     href: "mailto:noc@msonlinebd.com",
                   },
                   {
@@ -226,7 +226,7 @@ export default function ContactPage() {
                       <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                         {item.title}
                       </p>
-                      <p className="mt-1 text-sm font-bold text-slate-800 whitespace-pre-line">
+                      <p className="mt-1 text-sm font-bold text-slate-800">
                         {item.content}
                       </p>
                     </div>

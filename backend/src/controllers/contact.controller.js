@@ -74,7 +74,7 @@ exports.submitMessage = async (req, res, next) => {
         if (!db.contact) db.contact = {};
         if (!db.contact.inquiries) db.contact.inquiries = [];
 
-        const { name, email, phone, subject, message } = req.body;
+        const { name, email, phone, subject, message, package: pkgName } = req.body;
         if (!name || !email || !message) {
             return res.status(400).json({ success: false, error: "Name, email and message are required" });
         }
@@ -85,6 +85,7 @@ exports.submitMessage = async (req, res, next) => {
             email: email.trim(),
             phone: (phone || "").trim(),
             subject: subject || "general",
+            package: (pkgName || "").trim(),
             message: message.trim(),
             status: "unread",
             adminNote: "",

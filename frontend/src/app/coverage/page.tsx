@@ -64,7 +64,6 @@ export default async function CoveragePage() {
             </Section>
 
             {/* Keep the coverage labels comfortably separated from the page header. */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
 
             {/* Split Section */}
             <Section variant="white" size="lg">
@@ -127,7 +126,6 @@ export default async function CoveragePage() {
             </Section>
 
             {/* Keep the CTA label at least half an inch below the coverage content. */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
 
             {/* Bottom CTA Card */}
             <Section variant="white" className="pt-0">
@@ -160,7 +158,6 @@ export default async function CoveragePage() {
                 </Container>
             </Section>
             {/* Keeps the final coverage content visibly separated from the footer. */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
         </div>
     );
 }

@@ -39,7 +39,7 @@ export default function OfferPopupBanner() {
                 className="fixed z-[9999] top-1/2 left-1/2"
                 style={{
                     transform: "translate(-50%, -50%)",
-                    width: "min(90vw, 792px)",
+                    width: "min(90vw, 600px)",
                     animation: "popupIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both",
                 }}
                 role="dialog"
@@ -62,8 +62,8 @@ export default function OfferPopupBanner() {
                         <Image
                             src="/Ms_Offer-thamble.png"
                             alt="রেফার করে জিতে নিন ক্যাশব্যাক সহ আকর্ষণীয় সব পুরস্কার"
-                            width={792}
-                            height={512}
+                            width={600}
+                            height={335}
                             className="w-full h-auto object-cover hover:opacity-95 transition-opacity cursor-pointer"
                             priority
                         />

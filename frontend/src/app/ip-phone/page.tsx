@@ -123,22 +123,22 @@ export default async function IPPhonePage() {
                             {packages.map((pkg: any) => {
                                 const accent = pkg.color || "#0f2542";
                                 return (
-                                    <div key={pkg.id || pkg.name} className="min-w-0 border border-gray-100 rounded-2xl p-6 shadow-sm bg-white hover-lift transition-all relative overflow-hidden">
+                                    <div key={pkg.id || pkg.name} className="min-w-0 border border-gray-100 rounded-2xl shadow-sm bg-white hover-lift transition-all relative overflow-hidden" style={{ padding: "1cm" }}>
                                         <div className="absolute top-0 left-0 w-full h-1.5" style={{ background: accent }} />
                                         {pkg.tagline && (
                                             <span className="absolute top-4 right-4 text-[10px] uppercase font-black tracking-widest px-2.5 py-1 rounded-full bg-blue-50 text-blue-600">
                                                 {pkg.tagline}
                                             </span>
                                         )}
-                                        <h3 className="text-lg font-black text-slate-800 leading-snug mb-1">{pkg.name}</h3>
-                                        <p className="text-[13px] text-gray-400 font-semibold mb-4">{pkg.speed}</p>
+                                        <h3 className="text-lg font-black text-slate-800 leading-snug" style={{ marginBottom: "0.3cm" }}>{pkg.name}</h3>
+                                        <p className="text-[13px] text-gray-400 font-semibold" style={{ marginBottom: "0.5cm" }}>{pkg.speed}</p>
 
-                                        <div className="my-5 flex items-baseline gap-1.5">
+                                        <div className="flex items-baseline gap-1.5" style={{ marginTop: "0.5cm", marginBottom: "0.6cm" }}>
                                             <span className="text-3xl font-black text-slate-900">৳{pkg.price}</span>
                                             <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">{pkg.period}</span>
                                         </div>
 
-                                        <ul className="flex flex-col gap-2.5 border-t border-gray-50 pt-4 mb-6">
+                                        <ul className="flex flex-col gap-2.5 border-t border-gray-50" style={{ paddingTop: "0.5cm", marginBottom: "0.6cm" }}>
                                             {(pkg.features || []).map((f: any, i: number) => {
                                                 const txt = typeof f === "object" ? f.text : f;
                                                 return (
@@ -293,7 +293,6 @@ export default async function IPPhonePage() {
             </Section>
 
             {/* ── FAQ / Contact CTA ── */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
 
         </div>
     );

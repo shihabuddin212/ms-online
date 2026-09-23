@@ -13,7 +13,7 @@ export default function AboutPage() {
     return (
         <div className="w-full">
             {/* ── Header ── */}
-            <Section variant="white" size="sm" className="text-center pb-8 border-b border-gray-100">
+            <Section variant="white" size="sm" className="text-center pb-8 border-b border-gray-100" style={{ paddingTop: "1.2cm" }}>
                 <Container className="flex flex-col items-center">
                     <h1 className="text-3xl md:text-5xl font-extrabold tracking-widest uppercase mb-8" style={{ color: "var(--navy)" }}>
                         ABOUT US

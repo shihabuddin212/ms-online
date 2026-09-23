@@ -40,9 +40,8 @@ export default async function WifiZonePage() {
 
     return (
         <div className="w-full">
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
             {/* ── Hero Banner ── */}
-            <Section variant="white" size="sm" className="pt-8">
+            <Section variant="white" size="sm" className="pt-[0.9cm]!!">
                 <Container>
                     <div
                         className="relative flex w-full flex-col overflow-hidden rounded-3xl shadow-xl md:flex-row"
@@ -129,10 +128,9 @@ export default async function WifiZonePage() {
             </Section>
 
             {/* ── Locations Grid ── */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
             <Section variant="white" size="md">
                 <Container>
-                    <div className="text-center mb-12">
+                    <div className="text-center" style={{ marginTop: "0.9cm", marginBottom: "0.8cm" }}>
                         <h2 className="text-2xl md:text-[28px] font-extrabold text-slate-800 mb-2">Available WiFi Zones</h2>
                         <div className="w-14 h-1 rounded-full mx-auto" style={{ background: "var(--blue-lt)" }} />
                     </div>
@@ -149,7 +147,7 @@ export default async function WifiZonePage() {
             </Section>
 
             {/* Keeps the final WiFi zone list visibly separated from the footer. */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
+            <div aria-hidden="true" className="bg-white" style={{ height: "0.9in" }} />
 
         </div>
     );

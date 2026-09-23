@@ -202,7 +202,7 @@ export default function BlogPage() {
                     </div>
 
                     {/* ── Right: Sidebar ── */}
-                    <div className="w-full lg:w-1/3 flex flex-col gap-8 sticky top-[160px]">
+                    <div className="w-full lg:w-1/3 flex flex-col gap-8 lg:sticky lg:top-[160px]">
 
                         {/* Most Recent Posts */}
                         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 relative overflow-hidden">

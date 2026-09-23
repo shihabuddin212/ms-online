@@ -390,6 +390,7 @@ function dashboardPage() {
           <div><p style="font-size:.65rem;font-weight:800;color:#64748b;text-transform:uppercase">Email</p><p id="mv_email" style="font-size:.85rem;color:#3b82f6"></p></div>
           <div><p style="font-size:.65rem;font-weight:800;color:#64748b;text-transform:uppercase">Phone</p><p id="mv_phone" style="font-size:.85rem;font-weight:600;color:#334155"></p></div>
           <div><p style="font-size:.65rem;font-weight:800;color:#64748b;text-transform:uppercase">Subject</p><p id="mv_subject" style="font-size:.85rem;font-weight:700;color:#0091d5"></p></div>
+          <div><p style="font-size:.65rem;font-weight:800;color:#64748b;text-transform:uppercase">Package</p><p id="mv_package" style="font-size:.85rem;font-weight:700;color:#334155"></p></div>
         </div>
         <div><p style="font-size:.65rem;font-weight:800;color:#64748b;text-transform:uppercase;margin-bottom:.3rem">Message</p><p id="mv_message" style="font-size:.85rem;color:#334155;line-height:1.7;white-space:pre-wrap"></p></div>
         <p id="mv_date" style="margin-top:.75rem;font-size:.7rem;color:#94a3b8"></p>
@@ -538,7 +539,7 @@ function dashboardPage() {
 <div class="toast" id="toast"></div>
 
 <script>
-const API = 'http://localhost:5000';
+const API = 'https://www.msonlinebd.com';
 let activeService = 'home-internet';
   let editingId = null;
   let editingLocationId = null;
@@ -1085,6 +1086,7 @@ function renderMessages(items){
       <td><strong>\${m.name||'–'}</strong><br><span style="font-size:.72rem;color:#94a3b8">\${m.email||''}</span></td>
       <td>\${m.phone||'—'}</td>
       <td style="color:#0091d5;font-weight:600">\${m.subject||'general'}</td>
+      <td style="font-weight:600;color:#334155">\${m.package||'—'}</td>
       <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">\${m.message||''}</td>
       <td>\${statusBadge(m.status||'unread')}</td>
       <td style="font-size:.72rem;color:#94a3b8">\${new Date(m.createdAt).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</td>
@@ -1092,7 +1094,7 @@ function renderMessages(items){
     </tr>\`).join('');
   document.getElementById('tableContent').innerHTML=\`
     <table>
-      <thead><tr><th>Sender</th><th>Phone</th><th>Subject</th><th>Message</th><th>Status</th><th>Date</th><th style="text-align:right;width:170px">Actions</th></tr></thead>
+      <thead><tr><th>Sender</th><th>Phone</th><th>Subject</th><th>Package</th><th>Message</th><th>Status</th><th>Date</th><th style="text-align:right;width:170px">Actions</th></tr></thead>
       <tbody>\${rows}</tbody>
     </table>\`;
 }
@@ -1108,6 +1110,7 @@ async function viewMessage(id){
     document.getElementById('mv_email').textContent = m.email||'—';
     document.getElementById('mv_phone').textContent = m.phone||'—';
     document.getElementById('mv_subject').textContent = m.subject||'—';
+    document.getElementById('mv_package').textContent = m.package||'—';
     document.getElementById('mv_message').textContent = m.message||'—';
     document.getElementById('mv_date').textContent = 'Received: '+new Date(m.createdAt).toLocaleString();
     document.getElementById('mv_status').value = m.status||'unread';

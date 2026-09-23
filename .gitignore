@@ -11,3 +11,4 @@
 
 # Runtime CMS files are stored outside the Git checkout in production.
 backend/uploads/
+backend/db.json

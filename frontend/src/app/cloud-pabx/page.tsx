@@ -112,11 +112,10 @@ export default async function CloudPabxPage() {
             </Section>
 
             {/* ── Pricing Table ── */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
 
             <Section variant="white" size="md">
                 <Container>
-                    <div className="text-center mb-12">
+                    <div className="text-center" style={{ marginTop: "1.1cm", marginBottom: "1cm" }}>
                         <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">
                             PABX <span style={{ color: "var(--blue)" }}>Pricing Table</span>
                         </h2>
@@ -209,7 +208,7 @@ export default async function CloudPabxPage() {
 
             <Section variant="light" size="md">
                 <Container>
-                    <div className="text-center mb-12">
+                    <div className="text-center" style={{ marginBottom: "0.8cm" }}>
                         <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">
                             Features of{" "}
                             <span style={{ color: "var(--blue)" }}>Ms Online Cloud PABX</span>
@@ -217,7 +216,7 @@ export default async function CloudPabxPage() {
                         <div className="w-14 h-1 rounded-full mx-auto" style={{ background: "var(--blue-lt)" }} />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {pabxFeatures.map((feat) => (
                             <div key={feat.title}
                                 className="bg-white rounded-[var(--card-radius)] p-6 hover-lift"
@@ -229,9 +228,9 @@ export default async function CloudPabxPage() {
                     </div>
                 </Container>
             </Section>
+            <div aria-hidden="true" className="h-8 bg-white md:h-12" />
 
             {/* ── Why Ms Online PABX ── */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
 
             <Section variant="white" size="md">
                 <Container>
@@ -259,7 +258,7 @@ export default async function CloudPabxPage() {
                             </svg>
                         </div>
                         <div className="flex-1">
-                            <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: "var(--blue)" }}>
+                            <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: "var(--blue)", marginTop: "0.9cm" }}>
                                 THE SMARTER CHOICE
                             </p>
                             <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-8">
@@ -277,7 +276,7 @@ export default async function CloudPabxPage() {
                                     </li>
                                 ))}
                             </ul>
-                            <div className="mt-10 flex gap-4">
+                            <div className="mt-10 flex gap-4" style={{ marginBottom: "1.5cm" }}>
                                 <Link href="/contact"
                                     className="px-8 py-3.5 rounded-full font-bold text-white text-[14px] transition hover:-translate-y-0.5 hover:opacity-90 shadow-md"
                                     style={{ background: "var(--blue)" }}>
@@ -296,7 +295,6 @@ export default async function CloudPabxPage() {
 
             {/* ── CTA Banner ── */}
             {/* Keep the final page content clearly separated from the global footer. */}
-            <div aria-hidden="true" className="h-12 bg-white md:h-16" />
         </div>
     );
 }

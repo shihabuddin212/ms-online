@@ -4,7 +4,7 @@ import React from 'react';
 const PartnerLogos = () => (
     <>
         {/* 1. BTCL */}
-        <div className="flex items-center gap-2 group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+        <div className="flex items-center gap-2 flex-shrink-0 group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
             <svg viewBox="0 0 100 100" className="w-8 h-8 md:w-10 md:h-10">
                 <circle cx="50" cy="50" r="45" fill="none" stroke="#225b2a" strokeWidth="6" />
                 <path d="M 10 50 Q 50 10 90 50 Q 50 90 10 50" fill="#298a39" />
@@ -16,7 +16,7 @@ const PartnerLogos = () => (
         </div>
 
         {/* 2. BD HUB LIMITED */}
-        <div className="flex items-center gap-1.5 group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+        <div className="flex items-center gap-1.5 flex-shrink-0 group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
             <div className="bg-[#e41e26] rounded-md text-white font-black text-xl md:text-2xl px-2 py-0.5 shadow-sm transform -skew-x-6">bd</div>
             <div className="flex flex-col leading-tight justify-center">
                 <span className="font-black text-[#333] text-sm md:text-md m-0 p-0 tracking-tighter">HUB</span>
@@ -25,7 +25,7 @@ const PartnerLogos = () => (
         </div>
 
         {/* 3. CISCO */}
-        <div className="flex items-center gap-2 group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+        <div className="flex items-center gap-2 flex-shrink-0 group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
             <div className="flex flex-col items-center">
                 <svg viewBox="0 0 100 40" className="w-16 h-8 md:w-20 md:h-10">
                     {/* Bridge bars */}
@@ -45,7 +45,7 @@ const PartnerLogos = () => (
         </div>
 
         {/* 4. Allot */}
-        <div className="flex flex-col items-center justify-center group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+        <div className="flex flex-col items-center justify-center flex-shrink-0 group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
             <div className="flex items-end gap-1">
                 <span className="font-black text-[#1e4896] text-xl md:text-3xl tracking-tighter">All</span>
                 <span className="font-black text-[#efb807] text-xl md:text-3xl tracking-tighter">o</span>
@@ -55,13 +55,13 @@ const PartnerLogos = () => (
         </div>
 
         {/* 5. Juniper */}
-        <div className="flex flex-col items-center justify-center group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 pt-2">
+        <div className="flex flex-col items-center justify-center flex-shrink-0 group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 pt-2">
             <span className="font-light text-xl md:text-[28px] tracking-tighter text-[#1a1a1a]">Juniper<span className="font-bold text-xl md:text-[28px] text-[#1a1a1a]">.</span></span>
             <span className="text-[7px] text-[#0090d7] font-semibold uppercase tracking-[0.3em] pl-6 -mt-1">Networks</span>
         </div>
 
         {/* 6. Grameenphone */}
-        <div className="flex flex-col items-center group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+        <div className="flex flex-col items-center flex-shrink-0 group cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
             <svg viewBox="0 0 100 100" className="w-8 h-8 md:w-12 md:h-12 mb-1">
                 <path d="M50 20 C60 10, 90 20, 80 50 C90 70, 70 90, 50 80 C30 90, 10 70, 20 50 C10 30, 40 10, 50 20 Z" fill="#008bd2" />
             </svg>
@@ -84,7 +84,7 @@ export default function ClientSlider() {
 
                 <div className="flex">
                     {/* First Marquee Track wrapper */}
-                    <div className="animate-marquee flex items-center gap-12 md:gap-24 px-8 w-max">
+                    <div className="animate-marquee flex items-center gap-8 md:gap-24 px-8 w-max flex-shrink-0">
                         <PartnerLogos />
                         <PartnerLogos />
                     </div>

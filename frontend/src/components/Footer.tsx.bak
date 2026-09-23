@@ -35,10 +35,6 @@ export default function Footer() {
                             <Mail size={15} className="text-red-500 mt-0.5 flex-shrink-0" />
                             <a href="mailto:noc@msonlinebd.com" className="hover:text-red-400 transition">noc@msonlinebd.com</a>
                         </li>
-                        <li className="flex gap-2">
-                            <Mail size={15} className="text-red-500 mt-0.5 flex-shrink-0" />
-                            <a href="mailto:sales@msonlinebd.com" className="hover:text-red-400 transition">sales@msonlinebd.com</a>
-                        </li>
                     </ul>
                 </div>
 

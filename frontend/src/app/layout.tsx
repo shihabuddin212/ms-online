@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import OfferPopupBanner from "@/components/OfferPopupBanner";
-
 export const metadata: Metadata = {
   title: {
     template: "%s | Ms Online",
@@ -24,7 +23,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,11 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="w-full" data-scroll-behavior="smooth">
-      <body className="min-h-screen w-full m-0 overflow-x-hidden bg-white p-0 font-sans" suppressHydrationWarning>
-        <OfferPopupBanner />
+      <body className="min-h-screen w-full m-0 bg-white p-0 font-sans" suppressHydrationWarning>
         <Header />
-        <main className="w-full block">{children}</main>
-        <Footer />
+        <div className="w-full overflow-x-hidden">
+          <OfferPopupBanner />
+          <main className="w-full block">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
